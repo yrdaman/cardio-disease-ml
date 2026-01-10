@@ -206,7 +206,9 @@ with col_btn2:
 if predict_button:
     try:
         X_scaled = scaler.transform(input_df)
-        prob = model.predict_proba(X_scaled)[:, 1][0]
+        # Convert back to DataFrame to preserve feature names
+        X_scaled_df = pd.DataFrame(X_scaled, columns=features)
+        prob = model.predict_proba(X_scaled_df)[:, 1][0]
 
         # Risk band for interpretation
         if prob < 0.20:
