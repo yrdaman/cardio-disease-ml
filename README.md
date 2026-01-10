@@ -39,7 +39,7 @@ This project addresses the need for:
 | Feature | Description | Type |
 |---------|-------------|------|
 | `age` | Age in years | Continuous |
-| `gender` | 1 = Female, 2 = Male | Categorical |
+| `gender` | 0 = Female, 1 = Male | Categorical |
 | `height` | Height in cm | Continuous |
 | `bmi` | Body Mass Index (calculated) | Continuous |
 | `ap_hi` | Systolic blood pressure | Continuous |
@@ -67,7 +67,7 @@ Raw Data → Outlier Removal → Feature Engineering (BMI) → Train/Test Split 
 
 - **Stratified split** to maintain class balance
 - **StandardScaler** fitted only on training data to prevent data leakage
-- Scaler saved as `models/scaler.pkl` for inference
+- Scaler is bundled with the trained model inside models/final_model.pkl
 
 ### 2. Baseline Model Comparison
 
@@ -179,6 +179,8 @@ for t in thresholds:
 - **Probability Score:** Shows exact risk probability (0.00 - 1.00)
 - **Risk Classification:** High/Low risk based on 0.36 threshold
 - **Transparency:** Displays threshold and model optimization strategy
+- Risk Bands (Low / Moderate / High) for interpretability, separate from screening decision
+
 
 ### Input Fields
 
@@ -267,8 +269,7 @@ cardio-disease-ml/
 │   └── processed/
 │       └── cardio_processed.csv  # Cleaned dataset
 ├── models/
-│   ├── final_model.pkl       # Trained model bundle
-│   └── scaler.pkl            # Fitted StandardScaler
+│   └── final_model.pkl       # Trained model bundle  
 ├── notebooks/
 │   ├── 01_business_and_planning.ipynb
 │   ├── 02_data_validation_and_eda.ipynb
@@ -278,8 +279,8 @@ cardio-disease-ml/
 │    └── model_training.py     # Model training utilities
 └── deployment/
     ├── predict.py            # Prediction utilities
-    ├── monitoring.py         # Model monitoring
-    └── retraining.py         # Retraining pipeline
+    ├── monitoring.py         # Conceptual monitoring plan (not automated)
+    └── retraining.py         # Planned retraining strategy (not automated)
 ```
 
 ---
