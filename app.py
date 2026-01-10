@@ -247,7 +247,7 @@ if predict_button:
             """)
         else:
             st.success(f"""
-            ### ✅ LOW CARDIOVASCULAR RISK
+            ###  NEGATIVE (Low Immediate Risk)
             
             **Risk Score:** {prob:.1%}  
             **Recommendation:** Continue routine health monitoring
