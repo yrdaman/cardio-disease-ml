@@ -5,7 +5,7 @@ This module outlines metrics that would be monitored
 post-deployment in a production environment.
 """
 
-def monitoring_plan():
+def monitoring_plan(): 
     metrics = [
         "Recall",
         "Precision",

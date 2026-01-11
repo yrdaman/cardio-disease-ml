@@ -7,7 +7,7 @@ def load_model():
     with open(MODEL_PATH, "rb") as f:
         return pickle.load(f)
 
-def predict(input_df: pd.DataFrame):
+def predict(input_df: pd.DataFrame): 
     bundle = load_model()
     model = bundle["model"]
     scaler = bundle["scaler"]
