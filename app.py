@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import sys
+import sklearn._loss.loss as sklearn_loss
 
 # =========================================================
 # PAGE CONFIG (MUST BE FIRST)
@@ -33,6 +35,7 @@ st.markdown("""
 @st.cache_resource
 def load_model_bundle():
     try:
+        sys.modules.setdefault("_loss", sklearn_loss)
         with open("models/final_model.pkl", "rb") as f:
             return pickle.load(f)
     except FileNotFoundError:
